@@ -1,160 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Captured by Nick | Wedding Photography</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: #333;
-      background: #fff;
-    }
-    header {
-      background: #fdf6f0;
-      padding: 2rem;
-      text-align: center;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: #b67e5c;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      background: #fff2e1;
-      padding: 1rem 0;
-    }
-    nav a {
-      text-decoration: none;
-      color: #444;
-      font-weight: bold;
-    }
-    .hero {
-      background: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e') center/cover no-repeat;
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    .hero h2 {
-      font-size: 3rem;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .about, .contact, .booking, .instagram {
-      text-align: center;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 2rem auto;
-    }
-    form input, form textarea {
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-    form button {
-      padding: 0.8rem;
-      background-color: #b67e5c;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    form button:hover {
-      background-color: #a46c4d;
-    }
-    .instagram iframe {
-      width: 100%;
-      max-width: 500px;
-      height: 500px;
-      border: none;
-      overflow: hidden;
-    }
-    footer {
-      background: #fdf6f0;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Captured by Nick</h1>
-    <p>Timeless Wedding Photography</p>
-  </header>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-    <a href="#booking">Book</a>
-    <a href="#instagram">Instagram</a>
-  </nav>
-  <div class="hero">
-    <h2>Capturing Your Love Story</h2>
-  </div>
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>Hi, I'm Nick — a passionate wedding photographer dedicated to capturing genuine, timeless moments. My style blends documentary storytelling with artistic flair to ensure your wedding day is beautifully preserved forever.</p>
-  </section>
-  <section id="gallery" class="gallery">
-    <img src="https://images.unsplash.com/photo-1523528283113-1f2f1e6862c1" alt="Wedding Photo 1">
-    <img src="https://images.unsplash.com/photo-1504198458649-3128b932f49b" alt="Wedding Photo 2">
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Wedding Photo 3">
-    <img src="https://images.unsplash.com/photo-1504198266285-165a4ddc0f17" alt="Wedding Photo 4">
-  </section>
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>Interested in working together? Let's chat!</p>
-    <p>Email: <a href="mailto:capturedbynick@gmail.com">hello@capturedbynick.com</a></p>
-    <p>Phone: <a href="tel:+91 9770661140">+1 (234) 567-890</a></p>
-  </section>
-  <section id="booking" class="booking">
-    <h2>Book a Session</h2>
-    <form>
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="date" name="date" required>
-      <textarea name="message" rows="5" placeholder="Tell me about your wedding..." required></textarea>
-      <button type="submit">Submit</button>
+import { useEffect } from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { motion } from "framer-motion";
+
+export default function Home() { useEffect(() => { window.scrollTo(0, 0); }, []);
+
+return ( <div className="flex flex-col gap-12 p-4"> <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center" > <h1 className="text-4xl font-bold">Captured by Nick</h1> <p className="text-lg text-gray-600 mt-2">Wedding Photography with Soul</p> </motion.div>
+
+<motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+    className="grid md:grid-cols-2 gap-6"
+  >
+    <img src="/hero1.jpg" alt="Bride" className="rounded-2xl shadow-lg w-full" />
+    <img src="/hero2.jpg" alt="Portrait" className="rounded-2xl shadow-lg w-full" />
+  </motion.div>
+
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    className="text-center"
+  >
+    <h2 className="text-3xl font-semibold mb-4">Pricing</h2>
+    <div className="grid md:grid-cols-3 gap-4">
+      <Card className="rounded-2xl shadow-xl p-4">
+        <CardContent>
+          <h3 className="text-xl font-bold">Basic Package</h3>
+          <p className="text-sm text-gray-500 mt-1">4 hours coverage, 50 edited images</p>
+          <p className="text-2xl font-semibold mt-4">₹15,000</p>
+        </CardContent>
+      </Card>
+      <Card className="rounded-2xl shadow-xl p-4">
+        <CardContent>
+          <h3 className="text-xl font-bold">Classic Package</h3>
+          <p className="text-sm text-gray-500 mt-1">8 hours coverage, 100 edited images</p>
+          <p className="text-2xl font-semibold mt-4">₹25,000</p>
+        </CardContent>
+      </Card>
+      <Card className="rounded-2xl shadow-xl p-4">
+        <CardContent>
+          <h3 className="text-xl font-bold">Premium Package</h3>
+          <p className="text-sm text-gray-500 mt-1">Full day, 200+ images, album included</p>
+          <p className="text-2xl font-semibold mt-4">₹40,000</p>
+        </CardContent>
+      </Card>
+    </div>
+  </motion.div>
+
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+    className="text-center mt-12"
+  >
+    <h2 className="text-3xl font-semibold mb-4">Book a Session</h2>
+    <form className="max-w-xl mx-auto space-y-4">
+      <input type="text" placeholder="Your Name" className="w-full border rounded p-2" />
+      <input type="email" placeholder="Email" className="w-full border rounded p-2" />
+      <textarea placeholder="Message" className="w-full border rounded p-2"></textarea>
+      <Button className="w-full">Submit</Button>
     </form>
-  </section>
-  <section id="instagram" class="instagram">
-    <h2>Follow Me on Instagram</h2>
-    <iframe src="https://www.instagram.com/__capturedbynick__?igsh=YWR5d2hwamY1MXlr" allowtransparency="true" scrolling="no" frameborder="0"></iframe>
-  </section>
-  <footer>
-    <p>&copy; 2025 Captured by Nick. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+  </motion.div>
+
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+    className="text-center mt-12"
+  >
+    <h2 className="text-3xl font-semibold mb-4">Follow on Instagram</h2>
+    <a
+      href="https://instagram.com/yourhandle"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-500 underline"
+    >
+      @capturedbynick
+    </a>
+  </motion.div>
+</div>
+
+); }
+
